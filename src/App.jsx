@@ -26,7 +26,11 @@ function App() {
     try {
       const res = await fetch('http://lamp-stack-lab-alb-1896871825.eu-west-1.elb.amazonaws.com/api/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+         },
         body: JSON.stringify(formData)
       });
       const data = await res.json();

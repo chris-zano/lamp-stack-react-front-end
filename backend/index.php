@@ -49,7 +49,7 @@ if ($request_uri === "/api/submit" && $method === "POST") {
     $stmt = $pdo->query("SELECT id, name, email, phone FROM contacts");
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
 } else {
-    http_response_code(404);
+    http_response_code(200);
     echo json_encode(["error" => "This route returns no page. Try something else!"]);
 }
 ?>
