@@ -1,0 +1,12 @@
+services:
+  php-app:
+    build: ./backend
+    container_name: php-server
+    image: chrisncs/php-server:latest
+    ports:
+      - "80:80"
+    environment:
+      - DB_HOST=proxy-1739964875850-lamp-stack-lab-contacts-database-1.proxy-cz886u48en52.eu-west-1.rds.amazonaws.com
+      - DB_NAME=lamp-stack-lab-contacts-database-1
+      - DB_USER=admin
+      - DB_PASS=adminUser!234
