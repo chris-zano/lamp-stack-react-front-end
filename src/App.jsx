@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     if (currentView === 'view') {
-      fetch('http://lamp-stack-lab-alb-1896871825.eu-west-1.elb.amazonaws.com/api/contacts')
+      fetch('http://LampSt-LAMPS-ZE756jBijPeK-442637627.eu-west-1.elb.amazonaws.com/api/contacts')
         .then(res => res.json())
         .then(data => setContacts(data))
         .catch(() => setContacts([]));
@@ -24,7 +24,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://lamp-stack-lab-alb-1896871825.eu-west-1.elb.amazonaws.com/api/submit', {
+      const res = await fetch('http://LampSt-LAMPS-ZE756jBijPeK-442637627.eu-west-1.elb.amazonaws.com/api/submit', {
         method: 'POST',
         
         headers: { 
@@ -161,7 +161,7 @@ function App() {
         ) : (
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">Contact List</h2>
-            {contacts.length === 0 ? (
+            {contacts.error && contacts.length === 0 ? (
               <p className="text-gray-600 text-center">No contacts found.</p>
             ) : (
               <div className="overflow-x-auto">
@@ -175,7 +175,8 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {contacts.map((contact, index) => (
+                    {
+                    contacts.map((contact, index) => (
                       <tr
                         key={index}
                         className="border border-slate-100 hover:bg-gray-100 transition"

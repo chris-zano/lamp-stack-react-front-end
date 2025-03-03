@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$host = "*****************";
-$dbname = "***************";
-$username = "***********";
-$password = "*****************";
+$host = "*********";
+$dbname = "********";
+$username = "********";
+$password = "********";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
